@@ -23,14 +23,11 @@ df = pd.DataFrame(data)
 print("\nDataset Preview:\n")
 print(df)
 
-
 # Calculating Total Revenue
-
 
 total_revenue = df["order_value"].sum()
 
 print("\nTotal Revenue:", total_revenue)
-
 
 # Counting Orders Per Customer
 
@@ -38,7 +35,6 @@ order_counts = df.groupby("customer_name")["order_id"].count()
 
 print("\nOrders Per Customer:\n")
 print(order_counts)
-
 
 
 # Identifying Repeat Customers
@@ -54,19 +50,15 @@ repeat_revenue = df[df["customer_name"].isin(repeat_customers)]["order_value"].s
 
 print("\nRevenue from Repeat Customers:", repeat_revenue)
 
-
 # Revenue from New Customers
 
 new_revenue = df[~df["customer_name"].isin(repeat_customers)]["order_value"].sum()
 
 print("Revenue from New Customers:", new_revenue)
 
-
 print("\nCheck Full Data:\n")
 print(df)
-
 print(df["order_value"].sum())
-
 
 # Calculating Average Order Value (AOV)
 
@@ -75,7 +67,6 @@ average_order_value = total_revenue / total_orders
 
 print("\nTotal Orders:", total_orders)
 print("Average Order Value:", round(average_order_value, 2))
-
 
 # Average Order Value for Repeat Customers
 
@@ -89,9 +80,6 @@ new_aov = new_df["order_value"].mean()
 
 print("\nRepeat Customer AOV:", round(repeat_aov, 2))
 print("New Customer AOV:", round(new_aov, 2))
-
-
-
 
 # Comparing AOV using Bar Chart
 
